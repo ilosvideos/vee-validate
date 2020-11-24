@@ -31,7 +31,9 @@ class VeeValidate {
     this.configure(config);
     pluginInstance = this;
 
-    Vue = _Vue;
+    if(_Vue) {
+      Vue = _Vue;
+    }
 
     this._validator = setValidator(
       new Validator(null, { fastExit: config && config.fastExit }, this)
@@ -78,12 +80,12 @@ class VeeValidate {
     plugin({ Validator, ErrorBag, Rules: Validator.rules }, options);
   };
 
-  static install (opts = {}, Vue) {
+  static install (_Vue, opts) {
     if (!Vue || !window.Vue) {
       Vue = require('vue');
     }
 
-    pluginInstance = new VeeValidate(opts, Vue);
+    pluginInstance = new VeeValidate(opts);
     // inject the plugin container statically into the validator class
     Validator.$vee = pluginInstance;
 

@@ -9905,7 +9905,9 @@
     this.configure(config);
     pluginInstance = this;
 
-    Vue = _Vue;
+    if(_Vue) {
+      Vue = _Vue;
+    }
 
     this._validator = setValidator(
       new Validator(null, { fastExit: config && config.fastExit }, this)
@@ -9956,14 +9958,12 @@
 
     plugin({ Validator: Validator, ErrorBag: ErrorBag, Rules: Validator.rules }, options);
   };
-  VeeValidate$1.install = function install (opts, Vue) {
-      if ( opts === void 0 ) opts={};
-
+  VeeValidate$1.install = function install (_Vue, opts) {
     if (!Vue || !window.Vue) {
       Vue = require('vue');
     }
 
-    pluginInstance = new VeeValidate$1(opts, Vue);
+    pluginInstance = new VeeValidate$1(opts);
     // inject the plugin container statically into the validator class
     Validator.$vee = pluginInstance;
 
