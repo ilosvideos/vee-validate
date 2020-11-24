@@ -18,18 +18,21 @@ let pluginInstance;
 
 class VeeValidate {
   static version: string
+
   static install: () => void
+
   static Validator: Function<Validator>
 
   _vm: any
+
   _validator: Validator
 
   constructor (config, _Vue) {
     this.configure(config);
     pluginInstance = this;
-    if (_Vue) {
-      Vue = _Vue;
-    }
+
+    Vue = _Vue;
+
     this._validator = setValidator(
       new Validator(null, { fastExit: config && config.fastExit }, this)
     );
@@ -75,16 +78,12 @@ class VeeValidate {
     plugin({ Validator, ErrorBag, Rules: Validator.rules }, options);
   };
 
-  static install (_Vue, opts) {
-    if (Vue && _Vue === Vue) {
-      if (process.env.NODE_ENV !== 'production') {
-        warn('already installed, Vue.use(VeeValidate) should only be called once.');
-      }
-      return;
+  static install (opts = {}, Vue) {
+    if (!Vue || !window.Vue) {
+      Vue = require('vue');
     }
 
-    Vue = _Vue;
-    pluginInstance = new VeeValidate(opts);
+    pluginInstance = new VeeValidate(opts, Vue);
     // inject the plugin container statically into the validator class
     Validator.$vee = pluginInstance;
 
