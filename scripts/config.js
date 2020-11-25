@@ -95,7 +95,6 @@ function genConfig(options) {
   const config = {
     input: {
       input: options.input,
-      external: ['vue'],
       plugins: [
         json(),
         typescript({ typescript: require('typescript'), useTsconfigDeclarationDir: true }),
