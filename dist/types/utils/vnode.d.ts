@@ -1,4 +1,4 @@
-import Vue, { VNode, VNodeDirective } from 'vue';
+import { VNode, VNodeDirective } from 'vue';
 export declare const isTextInput: (vnode: VNode) => boolean;
 export declare function findModel(vnode: VNode): VNodeDirective | undefined;
 export declare function findValue(vnode: VNode): {

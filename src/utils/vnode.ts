@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import Vue, { VNode, VNodeDirective } from 'vue';
+import { VNode, VNodeDirective } from 'vue';
 import { find, isCallable, isNullOrUndefined, includes, isSpecified } from './index';
 import { normalizeRules } from './rules';
 import { RuleContainer } from '../extend';
+
+let Vue = window.Vue;
 
 export const isTextInput = (vnode: VNode): boolean => {
   const attrs = vnode.data?.attrs || vnode.elm;

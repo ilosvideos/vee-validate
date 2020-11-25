@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable camelcase */
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 import { ValidationProvider } from './components/Provider';
+
+let Vue = window.Vue;
 
 export type ProviderInstance = InstanceType<typeof ValidationProvider>;
 

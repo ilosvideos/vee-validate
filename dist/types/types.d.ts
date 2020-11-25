@@ -1,4 +1,4 @@
-import Vue, { VNode } from 'vue';
+import { VNode } from 'vue';
 import { ValidationProvider } from './components/Provider';
 export declare type ProviderInstance = InstanceType<typeof ValidationProvider>;
 export interface VeeObserver {

@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import Vue, { VueConstructor, VNode } from 'vue';
+import { VueConstructor, VNode } from 'vue';
 import { values, findIndex, debounce, createFlags } from '../utils';
 import { ValidationResult, VeeObserver, VNodeWithVeeContext, ValidationFlags, KnownKeys } from '../types';
 import { ValidationProvider } from './Provider';
 import { normalizeChildren } from '../utils/vnode';
 
+let Vue = window.Vue;
 const FLAGS_STRATEGIES: [KnownKeys<ValidationFlags>, 'every' | 'some'][] = [
   ['pristine', 'every'],
   ['dirty', 'some'],
