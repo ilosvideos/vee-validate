@@ -4,10 +4,14 @@
   * @license MIT
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.VeeValidate = {}));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.VeeValidate = {}, global.Vue$2));
+}(this, (function (exports, Vue$2) { 'use strict';
+
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue$2);
 
   var code = "en";
   var messages = {
@@ -1052,8 +1056,7 @@
       setConfig(cfg);
   };
 
-  var Vue = window.Vue;
-  var EVENT_BUS = new Vue();
+  var EVENT_BUS = new Vue__default['default']();
   function localeChanged() {
       EVENT_BUS.$emit('change:locale');
   }
@@ -2077,7 +2080,7 @@
       vm.initialized = true;
   }
 
-  var Vue$1 = window.Vue;
+  var Vue = window.Vue;
   var PROVIDER_COUNTER = 0;
   function data() {
       var errors = [];
@@ -2095,7 +2098,7 @@
       };
       return defaultValues;
   }
-  var ValidationProvider = Vue$1.extend({
+  var ValidationProvider = Vue.extend({
       inject: {
           $_veeObserver: {
               from: '$_veeObserver',
@@ -2471,7 +2474,7 @@
       }
   }
 
-  var Vue$2 = window.Vue;
+  var Vue$1 = window.Vue;
   var FLAGS_STRATEGIES = [
       ['pristine', 'every'],
       ['dirty', 'some'],
@@ -2507,7 +2510,7 @@
           $_veeObserver: this
       };
   }
-  var ValidationObserver = Vue$2.extend({
+  var ValidationObserver = Vue$1.extend({
       name: 'ValidationObserver',
       provide: provideSelf,
       inject: {

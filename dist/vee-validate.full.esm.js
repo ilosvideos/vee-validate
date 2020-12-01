@@ -3,6 +3,8 @@
   * (c) 2020 Abdelrahman Awad
   * @license MIT
   */
+import Vue$2 from 'vue';
+
 var code = "en";
 var messages = {
 	alpha: "The {_field_} field may only contain alphabetic characters",
@@ -1046,8 +1048,7 @@ var configure = function (cfg) {
     setConfig(cfg);
 };
 
-var Vue = window.Vue;
-var EVENT_BUS = new Vue();
+var EVENT_BUS = new Vue$2();
 function localeChanged() {
     EVENT_BUS.$emit('change:locale');
 }
@@ -2071,7 +2072,7 @@ function addListeners(vm, node) {
     vm.initialized = true;
 }
 
-var Vue$1 = window.Vue;
+var Vue = window.Vue;
 var PROVIDER_COUNTER = 0;
 function data() {
     var errors = [];
@@ -2089,7 +2090,7 @@ function data() {
     };
     return defaultValues;
 }
-var ValidationProvider = Vue$1.extend({
+var ValidationProvider = Vue.extend({
     inject: {
         $_veeObserver: {
             from: '$_veeObserver',
@@ -2465,7 +2466,7 @@ function watchCrossFieldDep(ctx, depName, withHooks) {
     }
 }
 
-var Vue$2 = window.Vue;
+var Vue$1 = window.Vue;
 var FLAGS_STRATEGIES = [
     ['pristine', 'every'],
     ['dirty', 'some'],
@@ -2501,7 +2502,7 @@ function provideSelf() {
         $_veeObserver: this
     };
 }
-var ValidationObserver = Vue$2.extend({
+var ValidationObserver = Vue$1.extend({
     name: 'ValidationObserver',
     provide: provideSelf,
     inject: {
