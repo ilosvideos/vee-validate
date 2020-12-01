@@ -1,4 +1,4 @@
-let Vue = window.Vue;
+import Vue from 'vue';
 
 const EVENT_BUS = new Vue();
 
