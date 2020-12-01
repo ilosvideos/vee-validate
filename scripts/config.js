@@ -93,9 +93,9 @@ const builds = {
 
 function genConfig(options) {
   const config = {
+    external: ['vue'],
     input: {
       input: options.input,
-      external: ['vue'],
       plugins: [
         json(),
         typescript({ typescript: require('typescript'), useTsconfigDeclarationDir: true }),
@@ -106,9 +106,9 @@ function genConfig(options) {
       banner: commons.banner,
       format: options.format,
       name: options.name,
-      globals: {
-        vue: 'Vue'
-      }
+    },
+    globals: {
+      'vue': 'Vue'
     }
   };
 
