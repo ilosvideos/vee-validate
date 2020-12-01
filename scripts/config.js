@@ -93,6 +93,7 @@ const builds = {
 
 function genConfig(options) {
   const config = {
+    external: ['vue'],
     input: {
       input: options.input,
       plugins: [
@@ -105,7 +106,6 @@ function genConfig(options) {
       banner: commons.banner,
       format: options.format,
       name: options.name,
-      external: ['vue']
     },
     globals: {
       'vue': 'Vue'
