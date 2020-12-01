@@ -3,7 +3,7 @@
   * (c) 2020 Abdelrahman Awad
   * @license MIT
   */
-import Vue$2 from 'vue';
+import Vue from 'vue';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -864,7 +864,7 @@ var setInteractionMode = function (mode, implementation) {
     modes[mode] = implementation;
 };
 
-var EVENT_BUS = new Vue$2();
+var EVENT_BUS = new Vue();
 function localeChanged() {
     EVENT_BUS.$emit('change:locale');
 }
@@ -1315,7 +1315,6 @@ function addListeners(vm, node) {
     vm.initialized = true;
 }
 
-var Vue = window.Vue;
 var PROVIDER_COUNTER = 0;
 function data() {
     var errors = [];
@@ -1709,7 +1708,6 @@ function watchCrossFieldDep(ctx, depName, withHooks) {
     }
 }
 
-var Vue$1 = window.Vue;
 var FLAGS_STRATEGIES = [
     ['pristine', 'every'],
     ['dirty', 'some'],
@@ -1745,7 +1743,7 @@ function provideSelf() {
         $_veeObserver: this
     };
 }
-var ValidationObserver = Vue$1.extend({
+var ValidationObserver = Vue.extend({
     name: 'ValidationObserver',
     provide: provideSelf,
     inject: {

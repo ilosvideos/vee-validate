@@ -1,5 +1,6 @@
+import Vue from 'vue';
 import { ValidationFlags, ValidationResult, VeeObserver, VNodeWithVeeContext } from '../types';
-export declare const ValidationProvider: import("vue/types/vue").ExtendedVue<import("vue/types/umd") & {
+export declare const ValidationProvider: import("vue/types/vue").ExtendedVue<Vue & {
     $_veeObserver: VeeObserver;
     _needsValidation: boolean;
     _inputEventName: string;

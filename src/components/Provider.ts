@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { CreateElement, VNode, VueConstructor } from 'vue';
+import Vue, { CreateElement, VNode, VueConstructor } from 'vue';
 import { normalizeRules, extractLocators } from '../utils/rules';
 import { normalizeEventValue } from '../utils/events';
 import { findInputNodes, normalizeChildren, resolveRules, isHTMLNode } from '../utils/vnode';
@@ -11,7 +11,6 @@ import { ProviderInstance, ValidationFlags, ValidationResult, VeeObserver, VNode
 import { addListeners, computeModeSetting, createValidationCtx, triggerThreadSafeValidation } from './common';
 import { EVENT_BUS } from '../localeChanged';
 
-let Vue = window.Vue;
 let PROVIDER_COUNTER = 0;
 
 type withProviderPrivates = VueConstructor<

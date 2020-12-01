@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { ValidationResult, VeeObserver, VNodeWithVeeContext, ValidationFlags } from '../types';
 interface ObserverField {
     id: string;
@@ -15,7 +16,7 @@ interface ObserverField {
     passed: boolean;
     failed: boolean;
 }
-export declare const ValidationObserver: import("vue/types/vue").ExtendedVue<import("vue/types/umd") & {
+export declare const ValidationObserver: import("vue/types/vue").ExtendedVue<Vue & {
     $_veeObserver: VeeObserver;
     $vnode: VNodeWithVeeContext;
 }, {
@@ -61,7 +62,7 @@ export declare const ValidationObserver: import("vue/types/vue").ExtendedVue<imp
         disabled: boolean;
         customMessages: any;
         detectInput: boolean;
-    } & import("vue/types/umd") & {
+    } & Vue & {
         $_veeObserver: VeeObserver;
         _needsValidation: boolean;
         _inputEventName: string;
@@ -77,7 +78,7 @@ export declare const ValidationObserver: import("vue/types/vue").ExtendedVue<imp
         $veeOnBlur?: Function | undefined;
         $vnode: VNodeWithVeeContext;
         $localeHandler: Function;
-    } & import("vue").default, object, object, object, Record<never, any>>>;
+    }, object, object, object, Record<never, any>>>;
     observers: any[];
     errors: Record<string, string[]>;
     flags: ValidationFlags;

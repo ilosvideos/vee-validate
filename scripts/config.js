@@ -104,7 +104,11 @@ function genConfig(options) {
     output: {
       banner: commons.banner,
       format: options.format,
-      name: options.name
+      name: options.name,
+      external: ['vue']
+    },
+    globals: {
+      'vue': 'Vue'
     }
   };
 

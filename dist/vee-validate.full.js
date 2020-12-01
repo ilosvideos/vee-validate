@@ -6,12 +6,12 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
   typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.VeeValidate = {}, global.Vue$2));
-}(this, (function (exports, Vue$2) { 'use strict';
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.VeeValidate = {}, global.Vue));
+}(this, (function (exports, Vue) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue$2);
+  var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue);
 
   var code = "en";
   var messages = {
@@ -2080,7 +2080,6 @@
       vm.initialized = true;
   }
 
-  var Vue = window.Vue;
   var PROVIDER_COUNTER = 0;
   function data() {
       var errors = [];
@@ -2098,7 +2097,7 @@
       };
       return defaultValues;
   }
-  var ValidationProvider = Vue.extend({
+  var ValidationProvider = Vue__default['default'].extend({
       inject: {
           $_veeObserver: {
               from: '$_veeObserver',
@@ -2474,7 +2473,6 @@
       }
   }
 
-  var Vue$1 = window.Vue;
   var FLAGS_STRATEGIES = [
       ['pristine', 'every'],
       ['dirty', 'some'],
@@ -2510,7 +2508,7 @@
           $_veeObserver: this
       };
   }
-  var ValidationObserver = Vue$1.extend({
+  var ValidationObserver = Vue__default['default'].extend({
       name: 'ValidationObserver',
       provide: provideSelf,
       inject: {
