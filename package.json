@@ -116,5 +116,5 @@
       "prettier --write",
       "jest --maxWorkers=1 --bail --findRelatedTests"
     ]
-  },
+  }
 }
